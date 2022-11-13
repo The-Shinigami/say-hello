@@ -3,6 +3,7 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
+    stages{
       stage('Build') {
             steps {
                 sh 'mvn clean pakcage'
@@ -14,6 +15,6 @@ pipeline {
                 sh 'java -jar target/say-hello-0.0.1.jar'
             }
         }
-          
+    }        
     
 }
