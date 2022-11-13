@@ -4,15 +4,13 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages{
-      stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
 
       stage('deploy') {
             steps {
-                sh 'java -jar target/say-hello-0.0.1.jar'
+                dir('target') {
+                 sh 'java -jar say-hello-0.0.1.jar' 
+               }
+                
             }
         }
     }        
