@@ -14,6 +14,7 @@ pipeline {
       stage('deploy') {
             steps {
                 dir('target') {
+                  sh 'kill -9 $(lsof -t -i:8081)'
                   sh 'java -jar say-hello-0.0.1.jar'
                }
                 
