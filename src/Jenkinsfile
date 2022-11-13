@@ -8,7 +8,7 @@ pipeline {
       stage('deploy') {
             steps {
                 dir('target') {
-                 sh 'java -jar say-hello-0.0.1.jar' 
+                 sh 'echo $PWD' 
                }
                 
             }
