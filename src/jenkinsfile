@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM '* * * * *'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'cd ../'
+                sh 'mvn clean pakcage'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh 'cd ../'
+                sh 'cd target'
+                sh 'java -jar say-hello-0.0.1.jar'
+            }
+        }
+        
+    }
+}
