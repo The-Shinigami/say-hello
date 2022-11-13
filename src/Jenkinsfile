@@ -6,17 +6,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd /home/user/Desktop/say-hello/say-hello'
-                sh 'mvn clean pakcage'
+                sh 'ls'
+                sh 'echo $PWD'
             }
         }
-        stage('deploy') {
-            steps {
-                sh 'cd /home/user/Desktop/say-hello/say-hello'
-                sh 'cd target'
-                sh 'java -jar say-hello-0.0.1.jar'
-            }
-        }
+       
         
     }
 }
