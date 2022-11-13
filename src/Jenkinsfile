@@ -4,12 +4,17 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages{
+        
+      stage('Build') {
+            steps {
+                sh 'mvn clean pakcage'
+            }
+        }
 
       stage('deploy') {
             steps {
                 dir('target') {
-                 sh 'echo $PWD' 
-                 sh 'ls'
+                  sh 'java -jar say-hello-0.0.1.jar'
                }
                 
             }
