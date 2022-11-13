@@ -9,12 +9,11 @@ pipeline {
             }
         }
 
- stage('deploy') {
+      stage('deploy') {
             steps {
                 sh 'java -jar target/say-hello-0.0.1.jar'
             }
         }
-       
-        
+          
     }
 }
