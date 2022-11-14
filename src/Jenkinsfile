@@ -10,10 +10,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-         stage('deploy-docker') {
+         stage('build-docker') {
             steps {
-                  sh 'ls'
+             dir('target') {
                   sh 'docker build -t say-hello .'
+                  }
             }
         }
 
