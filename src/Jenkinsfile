@@ -10,8 +10,16 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+         stage('deploy-docker') {
+            steps {
+                dir('target') {
+                  sh 'docker --tag say-hello build .'
+               }
+                
+            }
+        }
 
-      stage('deploy') {
+      stage('deploy-server') {
             steps {
                 dir('target') {
                   sh 'kill -9 $(lsof -t -i:8081)'
