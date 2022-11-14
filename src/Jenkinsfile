@@ -13,7 +13,7 @@ pipeline {
          stage('deploy-docker') {
             steps {
                 dir('target') {
-                  sh 'docker . --tag say-hello build'
+                  sh 'docker build -t say-hello .'
                }
                 
             }
