@@ -15,7 +15,7 @@ pipeline {
       stage('deploy-server') {
             steps {
                 dir('target') {
-                  sh 'kill -9 $(lsof -t -i:8081) 2>error.log'
+                  sh 'kill -9 2>error.log $(lsof -t -i:8081) '
                   sh 'java -jar say-hello-0.0.1.jar'
                }
                 
