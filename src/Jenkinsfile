@@ -12,11 +12,7 @@ pipeline {
         }
          stage('deploy-docker') {
             steps {
-                dir('target') {
-                  sh 'ls'
                   sh 'docker build -t say-hello .'
-               }
-                
             }
         }
 
