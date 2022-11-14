@@ -12,6 +12,7 @@ pipeline {
         }
          stage('build-docker') {
             steps {
+                  sh 'cp -r var/lib/jenkins/workspace/say-hello/src/Dockerfile /var/lib/jenkins/workspace/say-hello/target/'
              dir('target') {
                   sh 'docker build -t say-hello .'
                   }
@@ -23,7 +24,6 @@ pipeline {
                 dir('target') {
                   sh 'java -jar say-hello-0.0.1.jar'
                }
-                
             }
         }
     }        
