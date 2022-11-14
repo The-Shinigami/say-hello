@@ -7,7 +7,7 @@ target/generated-test-source
 target/maven-archiver
 target/maven-reports
 target/maven-status
-target/surfire-reports
+target/surefire-reports
 target/test-classes
 !**/src/test/**/target/
 
