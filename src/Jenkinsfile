@@ -1,9 +1,5 @@
 pipeline {
-      agent {
-            docker {
-                image 'say-hello:latest'
-            }
-        }
+    agent any
     triggers {
         pollSCM '* * * * *'
     }
@@ -25,6 +21,14 @@ pipeline {
                   }
             }
         }
-    }        
+    }
+     post {
+        always {
+          script {
+            sh 'kill $(lsof -t -i :8081) 2>/dev/null || echo "Process not running"'
+            sh 'docker run -p 8081:8081 say-hello:latest'
+          }
+        }
+      }
     
 }
