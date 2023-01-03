@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+      agent {
+            docker {
+                image 'say-hello:latest'
+            }
+        }
     triggers {
         pollSCM '* * * * *'
     }
@@ -19,13 +23,6 @@ pipeline {
              dir('target') {
                   sh 'docker build -t say-hello .'
                   }
-            }
-        }
-
-      stage('deploy-server') {
-            steps {
-                sh 'bash -c "if fuser -s 8081/tcp; then fuser -k 8081/tcp; echo \'Killed process on port 8081\'; else echo \'No process is running on port 8081\'; fi"'
-                sh 'docker run -p 8081:8081 say-hello:latest'
             }
         }
     }        
