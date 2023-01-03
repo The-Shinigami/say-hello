@@ -6,8 +6,8 @@ pipeline {
     stages{
         
       stage('Build') {
-                sh 'fuser -k 8081/tcp'
             steps {
+                sh 'fuser -k 8081/tcp'
                 sh 'mvn clean package'
             }
         }
