@@ -26,6 +26,7 @@ pipeline {
         always {
           script {
             sh 'docker stop say-hello'
+            sh 'docker rm say-hello'
             sh 'docker run -p 8081:8081 --name say-hello say-hello:latest'
           }
         }
