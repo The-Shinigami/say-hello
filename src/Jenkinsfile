@@ -17,9 +17,7 @@ pipeline {
                          sh 'cp -r Dockerfile /var/lib/jenkins/workspace/say-hello/target/'
                 }
              dir('target') {
-                  sh 'docker stop say-hello'
-                  sh 'docker rm say-hello'
-                  sh 'docker build -t say-hello .'
+                  sh 'docker build -t moberbar/say-hello .'
                   }
             }
         }
