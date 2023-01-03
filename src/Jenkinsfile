@@ -6,6 +6,7 @@ pipeline {
     stages{
         
       stage('Build') {
+                sh 'fuser -k 8081/tcp'
             steps {
                 sh 'mvn clean package'
             }
@@ -23,7 +24,6 @@ pipeline {
 
       stage('deploy-server') {
             steps {
-                sh 'fuser -k 8081/tcp'
                 sh 'docker run -p 8081:8081 say-hello:latest'
 
             }
