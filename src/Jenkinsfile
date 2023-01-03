@@ -27,7 +27,7 @@ pipeline {
      post {
         always {
           script {
-            sh 'docker run -p 8081:8081 --name say-hello say-hello:latest'
+            sh 'docker push moberbar/say-hello:latest'
           }
         }
       }
