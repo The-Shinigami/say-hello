@@ -22,10 +22,13 @@ pipeline {
             }
         }
          stage('push-docker') {
-                    withDockerRegistry([ credentialsId: "dockerId", url: "" ]) {
-                     sh 'docker push moberbar/say-hello:latest'
-                    }
-                }
+         steps{
+          withDockerRegistry([ credentialsId: "dockerId", url: "" ]) {
+                              sh 'docker push moberbar/say-hello:latest'
+                             }
+         }
+
+        }
     }
 
 }
