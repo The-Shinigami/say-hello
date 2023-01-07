@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: /home/user/Desktop/say-hello/say-hello/src/main/java/com/exa
+ mple/sayhello/SayHelloApplication.java
+
