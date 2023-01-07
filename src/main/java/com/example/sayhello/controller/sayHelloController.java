@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
-@CrossOrigin(origins = "+")
+@CrossOrigin(origins = "*")
 public class sayHelloController {
     @GetMapping("sayhello/{name}")
     public String sayHello(@PathVariable String name){
