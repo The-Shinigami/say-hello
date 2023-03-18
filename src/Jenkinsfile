@@ -4,12 +4,12 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages{
-        
       stage('build') {
             steps {
                 sh 'mvn clean package'
             }
         }
+
          stage('build-docker') {
             steps {
                   sh 'bash -c "if fuser -s 8081/tcp; then fuser -k 8081/tcp; echo \'Killed process on port 8081\'; else echo \'No process is running on port 8081\'; fi"'
