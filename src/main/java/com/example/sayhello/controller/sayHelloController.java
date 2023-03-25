@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class sayHelloController {
     @GetMapping("sayhello/{name}")
     public String sayHello(@PathVariable String name){
-        return "Hello To The User "+name;
+        return "Hello To The "+name;
     }
 }
